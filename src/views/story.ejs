@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="/css/main.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<h1>Blog Admin</h1>
+		</header>
+		<main id="story">
+			<h2>Stories List</h2>
+			<nav>
+				<a href="/admin" class="button back-btn"
+					><i class="fa-solid fa-arrow-left"></i> Back admin panel</a
+				>
+				<a href="/admin/story/add" class="button add-btn"
+					><i class="fa-solid fa-plus"></i> Add a new story</a
+				>
+			</nav>
+			<% if(stories.length){%>
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Content</th>
+						<th colspan="2">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for (const story of stories) {%>
+					<tr>
+						<td><%= story.title %></td>
+						<td><%= story.content.slice(0, 50) %>...</td>
+						<td>
+							<a
+								href="/admin/story/<%= story.id %>/edit"
+								class="button edit-btn"
+								><i class="fa-solid fa-pen-to-square"></i
+							></a>
+
+							<a
+								href="#"
+								data-id="<%= story.id %>"
+								class="button delete-btn"
+								><i class="fa-solid fa-trash"></i
+							></a>
+						</td>
+					</tr>
+
+					<% } %>
+				</tbody>
+			</table>
+			<%}%>
+		</main>
+
+		<script src="/js/datas-handler.js"></script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="/css/main.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<h1>Blog Admin</h1>
+		</header>
+		<main id="add_story">
+			<h2>Stories List</h2>
+			<nav>
+				<a href="/admin" class="button back-btn"
+					><i class="fa-solid fa-arrow-left"></i> Back admin panel</a
+				>
+				<a href="/admin/story/add" class="button add-btn"
+					><i class="fa-solid fa-plus"></i> Add a new story</a
+				>
+			</nav>
+			<!-- pour la version post ajouter method="post" -->
+			<form action="/admin/story/<%= story.id%>/edit" >
+				<h2>Edit story id n°<%= story.id%></h2>
+				<input
+					type="text"
+					name="title"
+					id="title"
+					placeholder="Entrer le titre"
+                    value="<%= story.title%>"
+					required
+				/>
+				<textarea
+					name="content"
+					id="content"
+					placeholder="Entrer le texte"
+					required
+				><%= story.content%></textarea>
+
+				<button type="submit" class="button submit-btn">Edit</button>
+			</form>
+		</main>
+		<!-- pour la version post commenter le code ci-dessous -->
+        <script src="/js/edit-handler.js"></script>
+	</body>
+</html>

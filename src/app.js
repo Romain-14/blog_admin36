@@ -10,7 +10,8 @@ app.set("view engine", "ejs");
 app.set("views", "src/views");
 
 app.use(express.static(path.join(process.cwd(), "/public")));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // pour convertir (parse) application/json
+app.use(express.urlencoded({ extended: true })); // pour convertir (parse) application/x-www-form-urlencoded
 
 app.use(router);
 

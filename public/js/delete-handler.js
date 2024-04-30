@@ -24,3 +24,4 @@ document.querySelectorAll(".delete-btn").forEach((element) => {
 			});
 	});
 });
+
